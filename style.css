@@ -1,13 +1,34 @@
 /* Кастомный цвет для блоков (лаванда) */
+
 .bg-purple {
     background-color: #c9b6e4 !important;
 }
 
-/* Чуть-чуть подкрасим ссылки в списке */
+/* 2. Оформление ссылок в списке */
 #section-links a {
     color: #1a4f8a;
+    text-decoration: none; /* Убираем стандартное подчеркивание */
 }
 
 #section-links a:hover {
     color: #d64545;
+    text-decoration: underline; /* Возвращаем подчеркивание при наведении */
+}
+
+/* 3. Ограничиваем высоту картинки с картой в 15 задании */
+#section-links img[usemap] {
+    max-height: 300px;
+    width: auto;
+    border-radius: 8px; /* Легкое скругление углов для красоты */
+}
+
+/* 4. Запрещаем перенос текста в таблице на ПК */
+/* (На мобилках таблица будет скроллиться благодаря классу table-responsive) */
+.table td, .table th {
+    white-space: nowrap; 
+}
+
+/* 5. Чтобы текст в ячейках с "числителем/знаменателем" не прилипал к краям */
+.table td.p-0 > div {
+    min-height: 24px;
 }
