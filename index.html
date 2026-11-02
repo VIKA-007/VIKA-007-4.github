@@ -14,22 +14,21 @@
 <body class="bg-light">
 
     <!-- ================= ШАПКА ================= -->
-    <header class="bg-purple w-100 border-bottom">
-        <!-- На мобилке столбик (flex-column), на ПК строка (flex-md-row) -->
-        <div class="d-flex flex-column flex-md-row align-items-center align-items-md-stretch w-100">
+    <header class="bg-purple w-100">
+        <!-- w-100: на всю ширину. flex-md-row: на ПК выстроить в строку -->
+        <div class="d-flex flex-column flex-md-row w-100">
             
-            <!-- ЛЕВАЯ ЧАСТЬ: Лого и название -->
-            <!-- Класс me-md-auto автоматически прижмет этот блок влево, 
-                 а всё остальное (меню) оттолкнет вправо -->
+            <!-- ЛЕВАЯ ЧАСТЬ (Лого + Название) -->
+            <!-- me-md-auto: это главная магия. Она говорит: "займи левый край и оттолкни всё остальное вправо" -->
             <div class="d-flex align-items-center gap-3 p-3 me-md-auto">
                 <img src="roza.jpg" alt="Логотип" class="rounded-circle" style="width: 60px; height: 60px; object-fit: cover;">
                 <span class="fs-4 fw-bold text-dark">Задание 4</span>
             </div>
 
-            <!-- ПРАВАЯ ЧАСТЬ: Меню -->
-            <!-- flex-md-row: на ПК ставит ссылки в строку -->
-            <!-- align-items-md-start: на ПК прижимает ссылки к ВЕРХУ -->
-            <nav class="d-flex flex-column flex-md-row align-items-center align-items-md-start w-100 w-md-auto">
+            <!-- ПРАВАЯ ЧАСТЬ (Меню) -->
+            <!-- align-self-md-start: прижимает меню к ВЕРХУ на ПК -->
+            <!-- flex-md-row: ссылки в строку на ПК -->
+            <nav class="d-flex flex-column flex-md-row align-self-md-start">
                 <a href="#section-links" class="text-dark text-decoration-none py-3 px-4 border-bottom border-md-bottom-0 border-md-start">Список гиперссылок</a>
                 <a href="#section-table" class="text-dark text-decoration-none py-3 px-4 border-bottom border-md-bottom-0 border-md-start">Расписание</a>
                 <a href="#section-form" class="text-dark text-decoration-none py-3 px-4">Форма</a>
