@@ -8,40 +8,83 @@
     <!-- Подключаем Bootstrap 5 через CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <!-- Наш файл стилей (для цветов и уникальных вещей) -->
+    <!-- Наш файл стилей для кастомных цветов -->
     <link rel="stylesheet" href="style.css" />
 </head>
 <body class="bg-light">
 
-    <!-- ШАПКА -->
-    <!-- d-flex flex-column flex-md-row: на мобилке столбик, на ПК строка -->
-    <header class="bg-purple w-100 p-3 mb-3">
-        <div class="container-fluid">
-            <div class="d-flex flex-column flex-md-row align-items-center justify-content-between">
-                
-                <!-- Лого и название -->
-                <div class="d-flex align-items-center gap-3 mb-3 mb-md-0">
-                    <img src="roza.jpg" alt="Логотип" class="rounded-circle" style="width: 80px; height: 80px; object-fit: cover;">
-                    <span class="fs-4 fw-bold text-dark">Задание 4</span>
-                </div>
-
-                <!-- Меню -->
-                <!-- На мобилке flex-column (вертикально), на ПК flex-md-row (горизонтально) -->
-                <nav class="d-flex flex-column flex-md-row w-100 w-md-auto gap-2">
-                    <a href="#section-links" class="text-dark text-decoration-none py-2 px-3 border-bottom border-md-none">Список гиперссылок</a>
-                    <a href="#section-table" class="text-dark text-decoration-none py-2 px-3 border-bottom border-md-none">Расписание</a>
-                    <a href="#section-form" class="text-dark text-decoration-none py-2 px-3">Форма</a>
-                </nav>
-
+    <!-- ================= ШАПКА ================= -->
+    <!-- w-100: на всю ширину -->
+    <header class="bg-purple w-100">
+        <!-- На мобилке столбик (flex-column), на ПК строка (flex-md-row) -->
+        <div class="d-flex flex-column flex-md-row align-items-md-stretch justify-content-md-between w-100">
+            
+            <!-- Левая часть: лого и название -->
+            <div class="d-flex align-items-center gap-3 p-3">
+                <img src="roza.jpg" alt="Логотип" class="rounded-circle" style="width: 80px; height: 80px; object-fit: cover;">
+                <span class="fs-4 fw-bold text-dark">Задание 4</span>
             </div>
+
+            <!-- Правая часть: меню -->
+            <!-- align-items-md-start: прижимаем ссылки к ВЕРХУ на ПК -->
+            <nav class="d-flex flex-column flex-md-row w-100 w-md-auto align-items-md-start">
+                <a href="#section-links" class="text-dark text-decoration-none py-3 px-4 border-bottom border-md-bottom-0 border-md-start">Список гиперссылок</a>
+                <a href="#section-table" class="text-dark text-decoration-none py-3 px-4 border-bottom border-md-bottom-0 border-md-start">Расписание</a>
+                <a href="#section-form" class="text-dark text-decoration-none py-3 px-4 border-md-start">Форма</a>
+            </nav>
+
         </div>
     </header>
 
-    <!-- КОНТЕНТ -->
-    <!-- container-fluid на мобилке, container (960px) на ПК -->
-    <main class="container-fluid container-md pb-3">
+    <!-- ================= КОНТЕНТ ================= -->
+    <!-- container: на ПК ограничивает ширину до 960px и центрирует -->
+    <main class="container pb-3 mt-3">
         
-        <!-- Блок 1: Таблица (на мобилке order-1, на ПК order-md-2) -->
+        <!-- 1. БЛОК СПИСКА ССЫЛОК -->
+        <!-- order-2 (на мобилке второй), order-md-1 (на ПК первый) -->
+        <section id="section-links" class="bg-purple p-3 mb-3 order-2 order-md-1">
+            <h2 class="fs-4 mb-3">Список гиперссылок</h2>
+            <ul class="list-unstyled">
+                <li class="mb-2"><a href="http://kubsu.ru/">1. Абсолютная ссылка на главную kubsu.ru</a></li>
+                <li class="mb-2"><a href="https://kubsu.ru/">2. Абсолютная ссылка (HTTPS)</a></li>
+                <li class="mb-2"><a href="https://kubsu.ru/"><img src="roza.jpg" alt="Роза" width="100" class="rounded" /></a><br />3. Ссылка-изображение</li>
+                <li class="mb-2"><a href="/internal-page">4. Сокращённая на внутреннюю</a></li>
+                <li class="mb-2"><a href="/">5. Сокращённая на главную</a></li>
+                <li class="mb-2"><a href="#section-form">6. Фрагмент текущей страницы</a></li>
+                <li class="mb-2"><a href="page.html?param1=value1&param2=value2&param3=value3">7. Три параметра в URL</a></li>
+                <li class="mb-2"><a href="page.html?id=123">8. Параметр id в URL</a></li>
+                <li class="mb-2"><a href="about.html">9. Относительная в текущем каталоге</a></li>
+                <li class="mb-2"><a href="about/about.html">10. Относительная в каталоге about</a></li>
+                <li class="mb-2"><a href="../page.html">11. Относительная уровнем выше</a></li>
+                <li class="mb-2"><a href="../../page.html">12. Относительная двумя уровнями выше</a></li>
+                <li class="mb-2">13. Предложение с <a href="https://kubsu.ru/">контекстной ссылкой</a>.</li>
+                <li class="mb-2"><a href="https://ru.wikipedia.org/wiki/HTML#История">14. Фрагмент стороннего сайта</a></li>
+                <li class="mb-2">
+                    <p class="mb-1">15. Карта изображения:</p>
+                    <img src="roza.jpg" alt="Карта" usemap="#imagemap" class="img-fluid rounded" />
+                    <map name="imagemap">
+                        <area shape="rect" coords="0,0,200,150" href="https://kubsu.ru/" alt="Прямоугольник" />
+                        <area shape="circle" coords="300,200,50" href="https://ru.wikipedia.org/" alt="Круг" />
+                    </map>
+                </li>
+                <li class="mb-2"><a href="">16. Пустой href</a></li>
+                <li class="mb-2"><a>17. Без href</a></li>
+                <li class="mb-2"><a href="https://kubsu.ru/" rel="nofollow">18. rel="nofollow"</a></li>
+                <li class="mb-2"><a href="https://kubsu.ru/" rel="nofollow">19. noindex</a></li>
+                <li class="mb-2">
+                    <p class="mb-1">20. Список ссылок с title:</p>
+                    <ol>
+                        <li><a href="https://kubsu.ru/" title="Сайт КубГУ">КубГУ</a></li>
+                        <li><a href="https://ru.wikipedia.org/" title="Википедия">Википедия</a></li>
+                        <li><a href="https://developer.mozilla.org/" title="MDN">MDN</a></li>
+                    </ol>
+                </li>
+                <li><a href="ftp://ftp.example.com/file.txt">21. FTP-сервер</a></li>
+            </ul>
+        </section>
+
+        <!-- 2. БЛОК ТАБЛИЦЫ -->
+        <!-- order-1 (на мобилке первый), order-md-2 (на ПК второй) -->
         <section id="section-table" class="bg-purple p-3 mb-3 order-1 order-md-2">
             <h2 class="fs-4 mb-3">Расписание ПМ21/2</h2>
             <!-- table-responsive делает таблицу прокручиваемой на мобилке -->
@@ -122,49 +165,7 @@
             </div>
         </section>
 
-        <!-- Блок 2: Список ссылок (на мобилке order-2, на ПК order-md-1) -->
-        <section id="section-links" class="bg-purple p-3 mb-3 order-2 order-md-1">
-            <h2 class="fs-4 mb-3">Список гиперссылок</h2>
-            <ul class="list-unstyled">
-                <li class="mb-2"><a href="http://kubsu.ru/">1. Абсолютная ссылка на главную kubsu.ru</a></li>
-                <li class="mb-2"><a href="https://kubsu.ru/">2. Абсолютная ссылка (HTTPS)</a></li>
-                <li class="mb-2"><a href="https://kubsu.ru/"><img src="roza.jpg" alt="Роза" width="100" class="rounded" /></a><br />3. Ссылка-изображение</li>
-                <li class="mb-2"><a href="/internal-page">4. Сокращённая на внутреннюю</a></li>
-                <li class="mb-2"><a href="/">5. Сокращённая на главную</a></li>
-                <li class="mb-2"><a href="#section-form">6. Фрагмент текущей страницы</a></li>
-                <li class="mb-2"><a href="page.html?param1=value1&param2=value2&param3=value3">7. Три параметра в URL</a></li>
-                <li class="mb-2"><a href="page.html?id=123">8. Параметр id в URL</a></li>
-                <li class="mb-2"><a href="about.html">9. Относительная в текущем каталоге</a></li>
-                <li class="mb-2"><a href="about/about.html">10. Относительная в каталоге about</a></li>
-                <li class="mb-2"><a href="../page.html">11. Относительная уровнем выше</a></li>
-                <li class="mb-2"><a href="../../page.html">12. Относительная двумя уровнями выше</a></li>
-                <li class="mb-2">13. Предложение с <a href="https://kubsu.ru/">контекстной ссылкой</a>.</li>
-                <li class="mb-2"><a href="https://ru.wikipedia.org/wiki/HTML#История">14. Фрагмент стороннего сайта</a></li>
-                <li class="mb-2">
-                    <p class="mb-1">15. Карта изображения:</p>
-                    <img src="roza.jpg" alt="Карта" usemap="#imagemap" class="img-fluid" />
-                    <map name="imagemap">
-                        <area shape="rect" coords="0,0,200,150" href="https://kubsu.ru/" alt="Прямоугольник" />
-                        <area shape="circle" coords="300,200,50" href="https://ru.wikipedia.org/" alt="Круг" />
-                    </map>
-                </li>
-                <li class="mb-2"><a href="">16. Пустой href</a></li>
-                <li class="mb-2"><a>17. Без href</a></li>
-                <li class="mb-2"><a href="https://kubsu.ru/" rel="nofollow">18. rel="nofollow"</a></li>
-                <li class="mb-2"><a href="https://kubsu.ru/" rel="nofollow">19. noindex</a></li>
-                <li class="mb-2">
-                    <p class="mb-1">20. Список ссылок с title:</p>
-                    <ol>
-                        <li><a href="https://kubsu.ru/" title="Сайт КубГУ">КубГУ</a></li>
-                        <li><a href="https://ru.wikipedia.org/" title="Википедия">Википедия</a></li>
-                        <li><a href="https://developer.mozilla.org/" title="MDN">MDN</a></li>
-                    </ol>
-                </li>
-                <li><a href="ftp://ftp.example.com/file.txt">21. FTP-сервер</a></li>
-            </ul>
-        </section>
-
-        <!-- Блок 3: Форма (всегда внизу) -->
+        <!-- 3. БЛОК ФОРМЫ -->
         <section id="section-form" class="bg-purple p-3 mb-3 order-3">
             <h2 class="fs-4 mb-3">Форма</h2>
             <form action="/" method="POST">
@@ -225,14 +226,15 @@
 
     </main>
 
-    <!-- ПОДВАЛ -->
+    <!-- ================= ПОДВАЛ ================= -->
     <footer class="bg-purple w-100 py-4 mt-3">
-        <div class="container-fluid container-md">
+        <!-- container-md: на ПК текст будет по центру ширины 960px, как и контент -->
+        <div class="container">
             (c) Виктория Клеймёнова
         </div>
     </footer>
 
-    <!-- Подключаем JS Bootstrap (для некоторых интерактивных элементов, не обязательно, но пусть будет) -->
+    <!-- Подключаем JS Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
