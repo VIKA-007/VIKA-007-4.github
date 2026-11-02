@@ -1,0 +1,13 @@
+/* Кастомный цвет для блоков (лаванда) */
+.bg-purple {
+    background-color: #c9b6e4 !important;
+}
+
+/* Чуть-чуть подкрасим ссылки в списке */
+#section-links a {
+    color: #1a4f8a;
+}
+
+#section-links a:hover {
+    color: #d64545;
+}
