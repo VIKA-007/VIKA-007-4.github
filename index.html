@@ -14,23 +14,25 @@
 <body class="bg-light">
 
     <!-- ================= ШАПКА ================= -->
-    <!-- w-100: на всю ширину -->
-    <header class="bg-purple w-100">
+    <header class="bg-purple w-100 border-bottom">
         <!-- На мобилке столбик (flex-column), на ПК строка (flex-md-row) -->
-        <div class="d-flex flex-column flex-md-row align-items-md-stretch justify-content-md-between w-100">
+        <div class="d-flex flex-column flex-md-row align-items-center align-items-md-stretch w-100">
             
-            <!-- Левая часть: лого и название -->
-            <div class="d-flex flex-column flex-md-row align-items-md-stretch justify-content-md-between w-100">
-                <img src="roza.jpg" alt="Логотип" class="rounded-circle" style="width: 80px; height: 80px; object-fit: cover;">
+            <!-- ЛЕВАЯ ЧАСТЬ: Лого и название -->
+            <!-- Класс me-md-auto автоматически прижмет этот блок влево, 
+                 а всё остальное (меню) оттолкнет вправо -->
+            <div class="d-flex align-items-center gap-3 p-3 me-md-auto">
+                <img src="roza.jpg" alt="Логотип" class="rounded-circle" style="width: 60px; height: 60px; object-fit: cover;">
                 <span class="fs-4 fw-bold text-dark">Задание 4</span>
             </div>
 
-            <!-- Правая часть: меню -->
-            <!-- align-items-md-start: прижимаем ссылки к ВЕРХУ на ПК -->
-            <nav class="d-flex flex-column flex-md-row ms-md-auto align-items-md-start">
+            <!-- ПРАВАЯ ЧАСТЬ: Меню -->
+            <!-- flex-md-row: на ПК ставит ссылки в строку -->
+            <!-- align-items-md-start: на ПК прижимает ссылки к ВЕРХУ -->
+            <nav class="d-flex flex-column flex-md-row align-items-center align-items-md-start w-100 w-md-auto">
                 <a href="#section-links" class="text-dark text-decoration-none py-3 px-4 border-bottom border-md-bottom-0 border-md-start">Список гиперссылок</a>
                 <a href="#section-table" class="text-dark text-decoration-none py-3 px-4 border-bottom border-md-bottom-0 border-md-start">Расписание</a>
-                <a href="#section-form" class="text-dark text-decoration-none py-3 px-4 border-md-start">Форма</a>
+                <a href="#section-form" class="text-dark text-decoration-none py-3 px-4">Форма</a>
             </nav>
 
         </div>
